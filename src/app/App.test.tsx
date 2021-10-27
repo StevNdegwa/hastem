@@ -1,7 +1,7 @@
 import { shallow, ShallowWrapper } from "enzyme";
 import App from "./App";
 
-describe("Test <App/> ", () => {
+describe("Test <App/>", () => {
   let wrapper: ShallowWrapper | null;
 
   beforeEach(() => wrapper = shallow(<App />));
