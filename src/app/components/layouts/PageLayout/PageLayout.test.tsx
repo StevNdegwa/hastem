@@ -1,5 +1,5 @@
 import { shallow, ShallowWrapper } from "enzyme";
-import PageLayout from "./PageLayout";
+import { PageLayout } from "./PageLayout";
 
 describe("Test <PageLayout/>", () => {
   let wrapper: ShallowWrapper;

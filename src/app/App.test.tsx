@@ -1,12 +1,32 @@
-import { shallow, ShallowWrapper } from "enzyme";
+import { mount, ReactWrapper } from "enzyme";
+import { Route, MemoryRouter, BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 
 describe("Test <App/>", () => {
-  let wrapper: ShallowWrapper | null;
+  let wrapper: ReactWrapper,
+    routes = ["/"];
 
-  beforeEach(() => wrapper = shallow(<App />));
+  beforeEach(
+    () =>
+      (wrapper = mount(
+        <MemoryRouter initialEntries={["/"]}>
+          <App />
+        </MemoryRouter>
+      ))
+  );
 
-  test("Has the text 'Application'", () => {
-    expect(wrapper?.text()).toEqual("Application");
-  })
+  test("contains 'Router' component", () => {
+    expect(wrapper.find(Router)).toHaveLength(1);
+  });
+
+  test("all routes should be configured", () => {
+    let configuresRoutes = wrapper
+      .find(Route)
+      .map((route) => route.prop("path"));
+    expect(configuresRoutes).toEqual(routes);
+  });
+
+  test("The <Login/> is renderd in '/' page", () => {
+    expect(wrapper.find("Login")).toHaveLength(1);
+  });
 });

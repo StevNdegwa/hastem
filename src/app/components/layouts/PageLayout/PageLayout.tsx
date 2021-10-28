@@ -6,7 +6,7 @@ export interface PageLayoutProps {
   footer?: ReactNode;
 }
 
-const PageLayout: FC<PageLayoutProps> = ({ header, main, footer }) => {
+export const PageLayout: FC<PageLayoutProps> = ({ header, main, footer }) => {
   return (
     <>
       <header>{header}</header>
@@ -15,5 +15,3 @@ const PageLayout: FC<PageLayoutProps> = ({ header, main, footer }) => {
     </>
   );
 };
-
-export default PageLayout;
