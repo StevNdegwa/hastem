@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import { Wrapper, Header, Main, Footer } from "./styles";
 
 export interface PageLayoutProps {
   header?: ReactNode;
@@ -8,10 +9,10 @@ export interface PageLayoutProps {
 
 export const PageLayout: FC<PageLayoutProps> = ({ header, main, footer }) => {
   return (
-    <>
-      <header>{header}</header>
-      <main>{main}</main>
-      <footer>{footer}</footer>
-    </>
+    <Wrapper>
+      <Header>{header}</Header>
+      <Main>{main}</Main>
+      <Footer>{footer}</Footer>
+    </Wrapper>
   );
 };

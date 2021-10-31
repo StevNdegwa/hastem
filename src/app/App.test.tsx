@@ -1,4 +1,5 @@
 import { mount, ReactWrapper } from "enzyme";
+import { Global } from "@emotion/react";
 import { Route, MemoryRouter, BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 
@@ -14,6 +15,10 @@ describe("Test <App/>", () => {
         </MemoryRouter>
       ))
   );
+
+  test("contains the GlobalStyles component", () => {
+    expect(wrapper.find(Global)).toHaveLength(1);
+  });
 
   test("contains 'Router' component", () => {
     expect(wrapper.find(Router)).toHaveLength(1);

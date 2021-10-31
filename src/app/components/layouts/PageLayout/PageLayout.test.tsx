@@ -1,41 +1,46 @@
 import { shallow, ShallowWrapper } from "enzyme";
 import { PageLayout } from "./PageLayout";
+import { Wrapper, Header, Main, Footer } from "./styles";
 
 describe("Test <PageLayout/>", () => {
   let wrapper: ShallowWrapper;
 
   beforeEach(() => (wrapper = shallow(<PageLayout />)));
 
-  test("A header element is present", () => {
-    expect(wrapper.find("header")).toHaveLength(1);
+  test("contains a 'Wrapper' element", () => {
+    expect(wrapper.find(Wrapper)).toHaveLength(1);
   });
 
-  test("The header element contains the node passed in 'header' prop", () => {
+  test("A 'Header' element is present", () => {
+    expect(wrapper.find(Header)).toHaveLength(1);
+  });
+
+  test("The 'Header' element contains the node passed in 'header' prop", () => {
     let header = "Header Content";
-    expect(wrapper.find("header").text()).toEqual("");
+    expect(wrapper.find(Header).text()).toEqual("");
     wrapper.setProps({ header });
-    expect(wrapper.find("header").text()).toEqual(header);
+    expect(wrapper.find(Header).text()).toEqual(header);
   });
 
-  test("A main element is present", () => {
-    expect(wrapper.find("main")).toHaveLength(1);
+  test("A 'Main' element is present", () => {
+    expect(wrapper.find(Main)).toHaveLength(1);
   });
 
-  test("The main element contains the node passed in 'main' prop", () => {
+  test("The 'Main' element contains the node passed in 'main' prop", () => {
     let main = "Main content";
-    expect(wrapper.find("main").text()).toEqual("");
+    expect(wrapper.find(Main).text()).toEqual("");
     wrapper.setProps({ main });
-    expect(wrapper.find("main").text()).toEqual(main);
+    expect(wrapper.find(Main).text()).toEqual(main);
   });
 
-  test("A footer element is present", () => {
-    expect(wrapper.find("footer")).toHaveLength(1);
+  test("A 'Footer' element is present", () => {
+    expect(wrapper.find(Footer)).toHaveLength(1);
   });
 
-  test("The footer element contains the node in 'footer' prop", () => {
+  test("The 'Footer' element contains the node in 'footer' prop", () => {
     let footer = "Footer Content";
-    expect(wrapper.find("footer").text()).toEqual("");
+    expect(wrapper.find(Footer).text()).toEqual("");
     wrapper.setProps({ footer });
-    expect(wrapper.find("footer").text()).toEqual(footer);
+    expect(wrapper.find(Footer).text()).toEqual(footer);
   });
 });
